@@ -1,0 +1,37 @@
+
+#filter {
+    font-size: 14px;
+    margin: 0px auto;
+}
+
+#filter ul {
+    line-height: 0px;
+    float: left;
+    margin-top:  -25px;
+    margin-left: 25px;
+}
+
+#filter ul li {
+    display: inline-block;
+    list-style: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#filter a {
+    text-decoration: none;
+    color: #444;
+    transition: 300ms all;
+}
+
+#filter a:hover {
+    color: #38a7c5;
+}
+
+#advanced-search {
+    text-align: right;
+}
+
+#input {
+    margin-top:  -7px; 
+}

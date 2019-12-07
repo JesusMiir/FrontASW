@@ -1,0 +1,55 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    background: #EEE;
+    bordder-bottom: 5px solid #333;
+}
+
+.clearfix {
+    clear: both;
+    float: none;
+}
+
+#logo {
+    width: 30%;
+    font-size: 35px;
+    float: left;
+    margin-top: 25px;
+    margin-left: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#menu {
+    width: 100%;
+    font-size: 14px;
+    margin: 0px auto;
+    margin-top: -70px;
+}
+
+#menu ul {
+    line-height: 85px;
+    float: right;
+}
+
+#menu ul li {
+    display: inline-block;
+    font-weight: bold;
+    list-style: none;
+    height: 46px;
+    margin-left: 15px;
+}
+
+#menu a {
+    text-decoration: none;
+    color: #444;
+    transition: 300ms all;
+}
+
+#menu a:hover {
+    color: #38a7c5;
+}

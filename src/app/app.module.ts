@@ -1,16 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { routing, appRoutingProviders } from './app.routing';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { IssuesComponent } from './components/issues/issues.component';
+import { NewIssueComponent } from './components/new-issue/new-issue.component';
+import { IssueComponent } from './components/issue/issue.component';
+import { ErrorComponent } from './components/error/error.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IssuesComponent,
+    NewIssueComponent,
+    IssueComponent,
+    ErrorComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Registro</h3>
+            <div class="identity-alert alert alert-success" *ngIf="identity && identity.sub">
+                ¡Te has identificado correctamente! Bienvenido {{identity.email}}
+            </div>
+    
+            <div class="identity-alert alert alert-danger" *ngIf="identity && identity.data">
+                ¡No te has identificado correctamente! 
+            </div>
+
+            <br>
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-6 no-padding">
+                <p>
+                    <label>Nombre de usuario:</label>
+                    <input type="text" class="form-control" name="username" #username="ngModel" 
+                    [(ngModel)]="user.username" required/>
+                </p>
+                <div class="col-md-10 alert-danger" *ngIf="!username.valid && username.touched">
+                    <span><small>El nombre de usuario no es válido</small></span> 
+                </div>
+                <br>
+                <p>
+                    <label>Nombre:</label>
+                    <input type="text" class="form-control" name="personalName" #personalName="ngModel" 
+                    [(ngModel)]="user.personalName" required/>
+                </p>
+                <div class="col-md-7 alert-danger" *ngIf="!personalName.valid && personalName.touched">
+                    <span><small>El nombre no es válido</small></span> 
+                </div>
+                <br>
+                <p>
+                    <label>Email:</label>
+                    <input type="text" class="form-control" name="email" #email="ngModel" 
+                    [(ngModel)]="user.email" required/>
+                </p>
+                <div class="col-md-7 alert-danger" *ngIf="!email.valid && email.touched">
+                    <span><small>El email no es válido</small></span> 
+                </div>
+                <br>
+                <p>
+                    <label>Contraseña:</label>
+                    <input type="password" class="form-control" name="password" #password="ngModel"
+                    [(ngModel)]="user.password" required>
+                </p>
+                <div class="col-md-7 alert-danger" *ngIf="!password.valid && password.touched">
+                    <span><small> La contraseña no es válida </small></span> 
+                </div>
+                <br>
+                <input type="submit" value="Registrarse" class="btn btn-primary" [disabled]="!registerForm.form.valid">
+            </form>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3>Iniciar Sesión</h3>
+
+            <div class="identity-alert alert alert-success" *ngIf="identity && identity.sub">
+                ¡Te has identificado correctamente! Bienvenido {{identity.email}}
+            </div>
+    
+            <div class="identity-alert alert alert-danger" *ngIf="identity && identity.data">
+                ¡No te has identificado correctamente! 
+            </div>
+
+            <br>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-6 no-padding">
+                <p>
+                    <label>Email:</label>
+                    <input type="email" class="form-control" name="email" #email="ngModel" 
+                    [(ngModel)]="user.email" required/>
+                </p>
+                <div class="col-md-7 alert-danger" *ngIf="!email.valid && email.touched">
+                    <span><small>El email no es válido</small></span> 
+                </div>
+                <br>
+                <p>
+                    <label>Contraseña:</label>
+                    <input type="password" class="form-control" name="password" #password="ngModel"
+                    [(ngModel)]="user.password" required>
+                </p>
+                <div class="col-md-7 alert-danger" *ngIf="!password.valid && password.touched">
+                    <span><small> Contraseña no es válida </small></span> 
+                </div>
+                <br>
+                <input type="submit" value="Entrar" class="btn btn-primary" [disabled]="!loginForm.form.valid">
+                &nbsp;&nbsp;
+                <button class="g-signin2 btn btn-light" data-onsuccess="onSignIn" data-theme="dark">Login Con Google</button>
+                <script>
+                function onSignIn(googleUser) {
+                    // Useful data for your client-side scripts:
+                    var profile = googleUser.getBasicProfile();
+                    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                    console.log('Full Name: ' + profile.getName());
+                    console.log('Given Name: ' + profile.getGivenName());
+                    console.log('Family Name: ' + profile.getFamilyName());
+                    console.log("Image URL: " + profile.getImageUrl());
+                    console.log("Email: " + profile.getEmail());
+
+                    // The ID token you need to pass to your backend:
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    console.log("ID Token: " + id_token);
+                }
+                </script>
+            </form>
+        </div>
+    </div>
+</div>

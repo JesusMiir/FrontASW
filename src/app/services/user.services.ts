@@ -31,7 +31,8 @@ export class UserService {
     }
 
     getIdentity() {
-        let identity = JSON.parse(localStorage.getItem('identity'));
+        let identity = localStorage.getItem('identity');
+      //let identity = JSON.parse(localStorage.getItem('identity'));
         if(identity != 'undefined') {
           this.identity = identity;
         }
@@ -42,7 +43,8 @@ export class UserService {
       } 
     
     getToken() {
-        let token = JSON.parse(localStorage.getItem('token'));
+        let token = localStorage.getItem('token');
+        //let token = JSON.parse(localStorage.getItem('token'));
         if(token != 'undefined') {
           this.token = token;
         }

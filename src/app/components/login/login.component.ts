@@ -55,7 +55,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     console.log(this.user);
-    
+    localStorage.setItem('identity', 'Jesús');
+    localStorage.setItem('token', 'ASDF');
+    /*
     this._userService.signup(this.user).subscribe(
       response => {
         this.identity = response;
@@ -90,7 +92,7 @@ export class LoginComponent implements OnInit {
         console.log(<any> error);
       }
     );
-    
+    */
   }
 
 }

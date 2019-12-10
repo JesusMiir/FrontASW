@@ -20,29 +20,50 @@
     <div class="row">
         <div class="col-7">
             {{user.username}} created an issue 2017-03-20 <br>
-            {{issue.description}}
+            {{issue.description}}<br>
+            <div *ngIf="uploadedFile.id != null">
+                <img class="image" src="data:image/png;base64,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">
+                <br>
+                <i id="text-description">{{uploadedFile.name}}</i>
+            </div>
         </div>
-        <div class="col-2">
+        <div class="col-2 text-left border1">
+            <br>
             Assigne <br>
             Type <br>
             Priority <br>
             Status <br>
             Votes <br>
             Watchers <br>
+            <br>
         </div>
-        <div class="col-3">
+        <div class="col-3 border2">
+            <br>
             Carles Ferré <br>
             task <br>
             blocker <br>
             new <br>
             Remove vote <br>
-            Watch this issue
+            Watch this issue<br>
+            <br>
         </div>
     </div>
     <hr>
     <div class="row">
         <div class="col-12"> 
-            <h5>Comments (0)</h5>
+            <h5>Comments ({{comments.length}})</h5>
+        </div>
+    </div>
+    <br>
+    <div *ngFor="let comment of comments" class="row">
+        <div class="col-1">
+            <h4>JM</h4>
+        </div>
+        <div class="col-11">
+            <i>{{comment.nameUser}}</i><br>
+            <h6>{{comment.description}}</h6>
+            <small>{{comment.data}}</small>
+            <br><br>
         </div>
     </div>
     <br>
@@ -54,4 +75,5 @@
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="What wold you like to say?">
         </div>
     </div>
+    <br><br><br><br>
 </div>

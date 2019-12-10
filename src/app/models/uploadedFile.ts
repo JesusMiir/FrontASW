@@ -1,4 +1,4 @@
-export class uploadedFile{
+export class UploadedFile{
     constructor(
         public id: number,
         public idIssue: number,

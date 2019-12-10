@@ -20,10 +20,10 @@
                             </li>
                             <span *ngIf="!identity">
                                 <li>
-                                    <a [routerLink]="['/iniciar-sesion']">Iniciar Sesión</a>
+                                    <a [routerLink]="['/login']">Login</a>
                                 </li>
                                 <li>
-                                    <a [routerLink]="['/registrarse']">Registrarse</a>
+                                    <a [routerLink]="['/register']">Register</a>
                                 </li>
                             </span>
                             <span *ngIf="identity && identity.sub">
@@ -31,7 +31,7 @@
                                     {{identity}}
                                 </li>
                                 <li>
-                                    <a [routerLink]="['/iniciar-sesion', 1]">Salir</a>
+                                    <a [routerLink]="['/login', 1]">Logout</a>
                                 </li>
                             </span>
                         </ul>

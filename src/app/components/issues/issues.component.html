@@ -1,7 +1,10 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-6">
             <h1>Issues</h1>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-light left"><a class="button_new_issue" [routerLink]="['/issues/new']">Create Issue</a></button>
         </div>
     </div>
     <br>
@@ -25,7 +28,7 @@
     <br><br>
     <div class="row">
         <div class="col-12">
-            <h6>Issues (1-25 of 56)</h6>
+            <h6>Issues (1-{{issues.length}} of {{issues.length}})</h6>
         </div>
     </div>
     <br>
@@ -44,38 +47,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td scope="row">#66: Prova</td>
-                <td>Bug</td>
-                <td>Important</td>
-                <td>OPEN</td>
-                <td>2</td>
-                <td>ASDF</td>
-                <td>2019-11-20</td>
-                <td>2 days</td>
-                <td>On</td>
-            </tr>
-            <tr>
-                <td scope="row">#66: Prova</td>
-                <td>Bug</td>
-                <td>Important</td>
-                <td>OPEN</td>
-                <td>2</td>
-                <td>ASDF</td>
-                <td>2019-11-20</td>
-                <td>2 days</td>
-                <td>On</td>
-            </tr>
-            <tr>
-                <td scope="row">#66: Prova</td>
-                <td>Bug</td>
-                <td>Important</td>
-                <td>OPEN</td>
-                <td>2</td>
-                <td>ASDF</td>
-                <td>2019-11-20</td>
-                <td>2 days</td>
-                <td>On</td>
+            <tr *ngFor="let issue of issues">
+                <td>{{issue.title}}</td>
+                <td>{{issue.type}}</td>
+                <td>{{issue.priority}}</td>
+                <td>{{issue.status}}</td>
+                <td>{{issue.votes}}</td>
+                <td>{{issue.assignee}}</td>
+                <td>{{issue.creationDate}}</td>
+                <td>{{issue.updateDate}}</td>
+                <td>{{issue.watched}}</td>
             </tr>
         </tbody>
     </table>

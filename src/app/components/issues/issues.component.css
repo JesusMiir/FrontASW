@@ -35,3 +35,13 @@
 #input {
     margin-top:  -7px; 
 }
+
+.left {
+    display: block;
+    float: right;
+}
+
+.button_new_issue {
+    text-decoration: none;
+    color: #444;
+}

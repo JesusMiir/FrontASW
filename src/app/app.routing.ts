@@ -19,9 +19,9 @@ const appRoutes: Routes = [
     {path: 'issues/new', component: NewIssueComponent},
     {path: 'issue/:id', component: IssueComponent},
     {path: 'issue/:id/:title', component: IssueComponent},
-    {path: 'iniciar-sesion', component: LoginComponent},
-    {path: 'iniciar-sesion/:id', component: LoginComponent},
-    {path: 'registrarse', component: RegisterComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'login/:id', component: LoginComponent},
+    {path: 'register', component: RegisterComponent},
     {path: '**', component: ErrorComponent}
 ];
 

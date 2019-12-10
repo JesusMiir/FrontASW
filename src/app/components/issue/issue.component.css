@@ -10,3 +10,27 @@
     padding-right: 5px !important;
     margin-left: 10px;
 }
+
+.text-left {
+    text-align: right !important;
+}
+
+.border1 {
+    border: 1px solid #CCC;
+    border-right: 1px solid white;
+}
+.border2 {
+    border: 1px solid #CCC;
+    border-left: 1px solid white;
+}
+
+.image {
+    height: 100px;
+    width: 100px;
+    margin: 25px;
+    margin-bottom: 5px;
+}
+
+#text-description {
+    margin-left: 25px;
+}

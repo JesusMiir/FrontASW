@@ -19,3 +19,7 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   var s = document.getElementsByTagName('script')[0];
   s.parentNode.insertBefore(p, s);
 })();
+
+function onLoadFunction() {
+
+}

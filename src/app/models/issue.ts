@@ -10,6 +10,7 @@ export class Issue{
         public priority: string,
         public votes: number,
         public creationDate: Date,
-        public updateDate: Date
+        public updateDate: Date,
+        public watched: number
     ){}
 }

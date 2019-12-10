@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h3>Iniciar Sesión</h3>
+            <h3>Login</h3>
 
             <div class="identity-alert alert alert-success" *ngIf="identity && identity.sub">
-                ¡Te has identificado correctamente! Bienvenido {{identity.email}}
+                You have been correctly identified! you are welcome {{identity.email}}
             </div>
     
             <div class="identity-alert alert alert-danger" *ngIf="identity && identity.data">
-                ¡No te has identificado correctamente! 
+                You have not identified correctly!
             </div>
 
             <br>
@@ -19,19 +19,19 @@
                     [(ngModel)]="user.email" required/>
                 </p>
                 <div class="col-md-7 alert-danger" *ngIf="!email.valid && email.touched">
-                    <span><small>El email no es válido</small></span> 
+                    <span><small>The email is not valid</small></span> 
                 </div>
                 <br>
                 <p>
-                    <label>Contraseña:</label>
+                    <label>Password:</label>
                     <input type="password" class="form-control" name="password" #password="ngModel"
                     [(ngModel)]="user.password" required>
                 </p>
                 <div class="col-md-7 alert-danger" *ngIf="!password.valid && password.touched">
-                    <span><small> Contraseña no es válida </small></span> 
+                    <span><small> Invalid Password </small></span> 
                 </div>
                 <br>
-                <input type="submit" value="Entrar" class="btn btn-primary" [disabled]="!loginForm.form.valid">
+                <input type="submit" value="Login" class="btn btn-primary" [disabled]="!loginForm.form.valid">
                 &nbsp;&nbsp;
                 <input type="button" value="Login With Google" class="g-signin2 btn btn-light" data-onsuccess="onSignIn" data-theme="dark">
                 

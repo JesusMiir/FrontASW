@@ -10,12 +10,12 @@
     <br>
     <div class="row">
         <div class="col-7" id="filter">
-            <p>Filter by:</p>
+            <p id="filter">Filter by:</p>
             <ul>
-                <li>All</li>
-                <li>Open</li>
-                <li>My issues</li>
-                <li>Watching</li>
+                <li><button type="button" class="btn btn-light" (click)="onClickAll()">All</button></li>
+                <li><button type="button" class="btn btn-light" (click)="onClickAll()">Open</button></li>
+                <li><button type="button" class="btn btn-light" (click)="onClickAll()">My issues</button></li>
+                <li><button type="button" class="btn btn-light" (click)="onClickAll()">Watching</button></li>
             </ul>
         </div>
         <div class="col-3" id="advanced-search">
@@ -28,7 +28,7 @@
     <br><br>
     <div class="row">
         <div class="col-12">
-            <h6>Issues (1-{{issues.length}} of {{issues.length}})</h6>
+            <h6>Issues ({{pagina}}-{{issues.length}} of {{issues.length}})</h6>
         </div>
     </div>
     <br>
@@ -48,14 +48,18 @@
         </thead>
         <tbody>
             <tr *ngFor="let issue of issues">
-                <td>{{issue.title}}</td>
+                <td id="filter">
+                    <a [routerLink]="['/issue/', issue.id]">
+                        #{{issue.id}}: {{issue.title}}
+                    </a>
+                </td>
                 <td>{{issue.type}}</td>
                 <td>{{issue.priority}}</td>
                 <td>{{issue.status}}</td>
                 <td>{{issue.votes}}</td>
                 <td>{{issue.assignee}}</td>
-                <td>{{issue.creationDate}}</td>
-                <td>{{issue.updateDate}}</td>
+                <td>{{issue.creationDate | generateDate}}</td>
+                <td>{{issue.updateDate | generateDate}}</td>
                 <td>{{issue.watched}}</td>
             </tr>
         </tbody>

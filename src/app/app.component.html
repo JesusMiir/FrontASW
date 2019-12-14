@@ -26,7 +26,7 @@
                                     <a [routerLink]="['/register']">Register</a>
                                 </li>
                             </span>
-                            <span *ngIf="identity && identity.sub">
+                            <span *ngIf="identity">
                                 <li>
                                     {{identity}}
                                 </li>

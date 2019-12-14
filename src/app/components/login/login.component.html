@@ -31,11 +31,13 @@
                     <span><small> Invalid Password </small></span> 
                 </div>
                 <br>
-                <input type="submit" value="Login" class="btn btn-primary" [disabled]="!loginForm.form.valid">
-                &nbsp;&nbsp;
-                <input type="button" value="Login With Google" class="g-signin2 btn btn-light" data-onsuccess="onSignIn" data-theme="dark">
-                
-                
+                <div #loginRef>
+                    <input type="submit" value="Login" class="btn btn-primary" [disabled]="!loginForm.form.valid">
+                    &nbsp;&nbsp;
+                    <button class="loginBtn loginBtn--google g-signin2 btn btn-light" #loginRef>
+                        Login with Google
+                    </button>
+                </div>
             </form>
         </div>
     </div>

@@ -2,51 +2,59 @@
     <div class="row">
         <div class="col-12">
             <h1>Create Issue</h1>
+            <br><br>
+            <form #issueForm="ngForm" (ngSubmit)="onSubmit()" class="col-md-12 no-padding">
+                <div class="row">
+                    <div class="col-4">Title</div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" name="title" #title="ngModel" [(ngModel)]="issue.title">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">Description</div>
+                    <div class="col-8">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" 
+                        rows="3" name="description" #description="ngModel" [(ngModel)]="issue.description"></textarea>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">Kind</div>
+                    <div class="col-8">
+                        <select class="form-control" name="type" #type="ngModel" [(ngModel)]="issue.type">
+                            <option selected>BUG</option>
+                            <option>ENHANCEMENT</option>
+                            <option>PROPOSAL</option>
+                            <option>TASK</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">Priority</div>
+                    <div class="col-8">
+                        <select class="form-control" name="priority" #priority="ngModel" [(ngModel)]="issue.priority">
+                            <option>TRIVIAL</option>
+                            <option>MINOR</option>
+                            <option selected>MAJOR</option>
+                            <option>CRITICAL</option>
+                            <option>BLOCKER</option>
+                        </select>
+                        </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">Attachment</div>
+                    <div class="col-8"><input type="file" name="fileToUpload" id="fileToUpload"></div>
+                </div>        
+                <br><br><br>
+                <div class="col-12">
+                    <button type="button" class="btn btn-light button-bot">Cancel</button>
+                    <input type="submit" value="Create Issue" class="btn btn-primary button-bot">
+                </div>
+            </form>
+            <br><br>
         </div>
-    </div>
-    <br><br>
-    <table class="table table-borderless">
-        <tbody>
-            <tr>
-                <td>Title</td>
-                <td><input type="text" class="form-control"></td>
-            </tr>
-            <br>
-            <tr>
-                <td>Description</td>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </tr>
-            <br>
-            <tr>
-                <td>Kind</td>
-                <td>
-                    <select class="form-control">
-                        <option>Default select</option>
-                    </select>
-                </td>
-                <td></td>
-                <td></td>
-            </tr>
-            <br>
-            <tr>
-                <td>Priority</td>
-                <td>
-                    <select class="form-control">
-                        <option>Default select</option>
-                    </select>
-                </td>
-            </tr>
-            <br>
-            <tr>
-                <td>Attachment</td>
-                <td><input type="file" name="fileToUpload" id="fileToUpload"></td>
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <div class="row">
-        <div class="col-8"></div>
-        <div class="col-2"><button type="button" class="btn btn-primary">Create issue</button></div>
-        <div class="col-2"><button type="button" class="btn btn-light">Cancel</button></div>
     </div>
 </div>

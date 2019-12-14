@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://apiissuetrackinator.herokuapp.com",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

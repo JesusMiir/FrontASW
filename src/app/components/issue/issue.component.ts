@@ -24,7 +24,7 @@ export class IssueComponent implements OnInit {
     private _router: Router,
     private _issueService: IssueService
   ) {
-    this.issue = new Issue(3, null, null, 'Third Issue', 'Please, address it as soon as possible', '', '', '', null, null, null);
+    this.issue = new Issue(3, null, null, 'Third Issue', 'Please, address it as soon as possible', '', '', '', null, null, null, null);
     this.user = new User('Carles Ferré', 'Carles Ferré', '', '');
     this.uploadedFile = new UploadedFile(1, 1, 'File of my holidays', null);
     this.comments = [

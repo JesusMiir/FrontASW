@@ -11,6 +11,7 @@ import { IssueComponent } from './components/issue/issue.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GenerateDatePipe } from './pipe/generate.date.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterComponent } from './components/register/register.component';
     IssueComponent,
     ErrorComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    GenerateDatePipe
   ],
   imports: [
     BrowserModule,

@@ -20,12 +20,12 @@
 
 #filter a {
     text-decoration: none;
-    color: #444;
+    color: #000;
     transition: 300ms all;
 }
 
 #filter a:hover {
-    color: #38a7c5;
+    color: #666;
 }
 
 #advanced-search {

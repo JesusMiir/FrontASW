@@ -17,6 +17,7 @@ export class IssuesComponent implements OnInit {
 
   public user: User;
   public issues;
+  public pagina;
 
   constructor(
     private _route: ActivatedRoute,
@@ -24,15 +25,90 @@ export class IssuesComponent implements OnInit {
     private _issueService: IssueService,
     private _userService: UserService
   ) { 
-    this.issues = [
-      {id:1, idUser:1, idUserAssignee:1, title:'Issue 1', description:'La mejor issue 1', status:'NEW', type:'Bug', priority:'Important', votes:'10', creationDate:'11-12-19', updateDate:'22-12-19', watched:10},
-      {id:1, idUser:1, idUserAssignee:1, title:'Issue 2', description:'La mejor issue 2', status:'NEW', type:'Bug', priority:'Important', votes:'10', creationDate:'11-12-19', updateDate:'22-12-19', watched:11},
-      {id:1, idUser:1, idUserAssignee:1, title:'Issue 3', description:'La mejor issue 3', status:'NEW', type:'Bug', priority:'Important', votes:'10', creationDate:'11-12-19', updateDate:'22-12-19', watched:12}
-     
-    ];
+    this.getIssues();
+    this.issues = [];
+    this.pagina = 0;
   }
 
   ngOnInit() {
+  }
+
+  getIssues() {
+    this._issueService.getIssues().subscribe(
+      response => {
+        this.issues = (response);
+        console.log(this.issues);
+        if (this.issues.length > 0) this.pagina = 1;
+      }
+    );
+  }
+
+  onClickAll() {
+    this.getIssues();
+  }
+
+  onClickOpen() {
+    this.getIssues();
+  }
+
+  onClickMyIssues() {
+    this.getIssues();
+  }
+
+  onClickWatching(){
+    this.getIssues();
+  }
+  
+  /////////////////////////////////////////////
+
+  onClickTitle() {
+    this.getIssues();
+  }
+
+  onClickType() {
+    this.getIssues();
+  }
+
+  onClickPriority() {
+    this.getIssues();
+  }
+
+  onClickStatus() {
+    this.getIssues();
+  }
+
+  onClickVotes() {
+    this.getIssues();
+  }
+
+  onClickAssignee() {
+    this.getIssues();
+  }
+
+  onClickCreated() {
+    this.getIssues();
+  }
+
+  onClickUpdated() {
+    this.getIssues();
+  }
+
+  onClickWatch() {
+    this.getIssues();
+  }
+
+  /////////////////////////////////////////////
+
+  onClickFilterByType() {
+    this.getIssues();
+  }
+
+  onClickFilterByPriority() {
+    this.getIssues();
+  }
+
+  onClickFilterByAssignee() {
+    this.getIssues();
   }
 
 }

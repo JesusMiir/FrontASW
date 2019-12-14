@@ -13,9 +13,9 @@
             <p id="filter">Filter by:</p>
             <ul>
                 <li><button type="button" class="btn btn-light" (click)="onClickAll()">All</button></li>
-                <li><button type="button" class="btn btn-light" (click)="onClickAll()">Open</button></li>
-                <li><button type="button" class="btn btn-light" (click)="onClickAll()">My issues</button></li>
-                <li><button type="button" class="btn btn-light" (click)="onClickAll()">Watching</button></li>
+                <li><button type="button" class="btn btn-light" (click)="onClickOpen()">Open</button></li>
+                <li><button type="button" class="btn btn-light" (click)="onClickMyIssue()">My issues</button></li>
+                <li><button type="button" class="btn btn-light" (click)="onClickWatching()">Watching</button></li>
             </ul>
         </div>
         <div class="col-3" id="advanced-search">
@@ -35,15 +35,15 @@
     <table class="table table-borderless">
         <thead>
             <tr>
-                <th scope="col">Title</th>
-                <th scope="col">T</th>
-                <th scope="col">P</th>
-                <th scope="col">Status</th>
-                <th scope="col">Votes</th>
-                <th scope="col">Assignee</th>
-                <th scope="col">Created</th>
-                <th scope="col">Updated</th>
-                <th scope="col">Watched</th>
+                <th scope="col"><button type="button" class="btn btn-secondary" (click)="onClickAll()">Title</button></th>
+                <th scope="col"><button type="button" class="btn btn-secondary" (click)="onClickAll()">T</button></th>
+                <th scope="col"><button type="button" class="btn btn-secondary" (click)="onClickAll()">P</button></th>
+                <th scope="col"><button type="button" class="btn btn-secondary" (click)="onClickAll()">Status</button></th>
+                <th scope="col"><button type="button" class="btn btn-secondary" (click)="onClickAll()">Votes</button></th>
+                <th scope="col"><button type="button" class="btn btn-secondary" (click)="onClickAll()">Assignee</button></th>
+                <th scope="col"><button type="button" class="btn btn-secondary" (click)="onClickAll()">Created</button></th>
+                <th scope="col"><button type="button" class="btn btn-secondary" (click)="onClickAll()">Updated</button></th>
+                <th scope="col"><button type="button" class="btn btn-secondary" (click)="onClickAll()">Watched</button></th>
             </tr>
         </thead>
         <tbody>
@@ -53,11 +53,13 @@
                         #{{issue.id}}: {{issue.title}}
                     </a>
                 </td>
-                <td>{{issue.type}}</td>
-                <td>{{issue.priority}}</td>
-                <td>{{issue.status}}</td>
+                <td><button type="button" class="btn btn-light" (click)="onClickAll()">{{issue.type}}</button></td>
+                <td><button type="button" class="btn btn-light" (click)="onClickAll()">{{issue.priority}}</button></td>
+                <td><button type="button" class="btn btn-light" (click)="onClickAll()">{{issue.status}}</button></td>
                 <td>{{issue.votes}}</td>
-                <td>{{issue.assignee}}</td>
+                <td>
+                    <button *ngIf="issue.assigne != null" type="button" class="btn btn-light" (click)="onClickAll()">{{issue.assignee}}</button>
+                </td>
                 <td>{{issue.creationDate | generateDate}}</td>
                 <td>{{issue.updateDate | generateDate}}</td>
                 <td>{{issue.watched}}</td>

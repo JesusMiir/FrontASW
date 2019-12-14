@@ -107,6 +107,10 @@ export class IssuesComponent implements OnInit {
     this.getIssues();
   }
 
+  onClickFilterByStatus() {
+    this.getIssues();
+  }
+
   onClickFilterByAssignee() {
     this.getIssues();
   }

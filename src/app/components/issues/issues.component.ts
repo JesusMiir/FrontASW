@@ -43,16 +43,6 @@ export class IssuesComponent implements OnInit {
   ngOnInit() {
   }
 
-  getIssues(filter,order, sort, value) {
-    this._issueService.getIssues(filter,order, sort, value).subscribe(
-      response => {
-        this.issues = (response);
-        console.log(this.issues);
-        if (this.issues.length > 0) this.pagina = 1;
-      }
-    );
-  }
-
   swap_order(column){
     if (this.orderby == column){
       if (this.order == "asc") {
@@ -70,23 +60,33 @@ export class IssuesComponent implements OnInit {
     this.filterby = value;
   }
 
+  getIssues(filter,order, sort, value) {
+    this._issueService.getIssues(filter,order, sort, value).subscribe(
+      response => {
+        this.issues = (response);
+        console.log(this.issues);
+        if (this.issues.length > 0) this.pagina = 1;
+      }
+    );
+  }
+
   onClickAll() {
-    this.getIssues("all", this.order, null, null);
+    this.getIssues("all", this.order, this.orderby, null);
     this.filter = null;
   }
 
   onClickOpen() {
-    this.getIssues("open", this.order, null, null);
+    this.getIssues("open", this.order, this.orderby, null);
     this.filter = "open";
   }
 
   onClickMyIssues() {
-    this.getIssues("mine", this.order, null, null);
+    this.getIssues("mine", this.order, this.orderby, null);
     this.filter = "mine";
   }
 
   onClickWatching(){
-    this.getIssues("watching", this.order, null, null);
+    this.getIssues("watching", this.order, this.orderby, null);
     this.filter = "watching";
   }
   

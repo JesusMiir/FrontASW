@@ -22,6 +22,7 @@
 .border2 {
     border: 1px solid #CCC;
     border-left: 1px solid white;
+    margin-left: -1px;
 }
 
 .image {
@@ -33,4 +34,33 @@
 
 #text-description {
     margin-left: 25px;
+}
+
+#firstLeter-1 {
+    margin-left: 25px;
+    margin-top: 10px;
+    background-color: #FA5;
+    padding-left: 15px;
+    padding-right: 23px;
+    padding-bottom: 5px;
+    padding-top: 3px;
+    border-radius: 100%;
+}
+
+#firstLeter-2 {
+    margin-left: 25px;
+    background-color: #6AF;
+    padding-left: 15px;
+    padding-right: 23px;
+    padding-bottom: 5px;
+    padding-top: 3px;
+    border-radius: 100%;
+}
+
+#data {
+    margin-top: -7px !important;
+}
+
+#enviar {
+    margin-left: -15px;
 }

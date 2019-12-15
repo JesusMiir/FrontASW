@@ -18,10 +18,13 @@ export class IssueService {
     
     create(issue, token):Observable<any> {
         let params = JSON.stringify(issue);
-        
         let headers = new HttpHeaders({'Content-Type':'application/json', 'api_key':token});
 
         return this._http.post(this.url, params, {headers: headers});
+    }
+
+    getIssue(id):Observable<any> {
+        return this._http.get(this.url + '/' + id);
     }
 
     getIssues():Observable<any> {

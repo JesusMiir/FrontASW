@@ -47,6 +47,7 @@ export class NewIssueComponent implements OnInit {
     this._issueService.create(this.issue, this.token).subscribe(
       response => {
         console.log(response);
+        this._router.navigate(["/issue/"+response.id]);
       }
     );
   }

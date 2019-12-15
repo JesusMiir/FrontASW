@@ -3,6 +3,6 @@ export class Comment{
         public id: number,
         public idUser: number,
         public idIssue: number,
-        public description: string
+        public text: string
     ){}
 }

@@ -27,9 +27,9 @@ export class IssueService {
         return this._http.get(this.url + '/' + id);
     }
 
-    getIssues():Observable<any> {
+    getIssues(filter,order, sort, value):Observable<any> {
         let headers = new HttpHeaders({'Content-Type':'application/json', "api_key": null});
-        let params = new HttpParams().set("filter", null).set("order", null).set("sort", null).set("value", null); 
+        let params = new HttpParams().set("filter", filter).set("order", order).set("sort", sort).set("value", value); 
 
         return this._http.get(this.url);
     }

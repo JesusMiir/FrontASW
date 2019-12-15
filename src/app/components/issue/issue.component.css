@@ -64,3 +64,9 @@
 #enviar {
     margin-left: -15px;
 }
+
+.clearfix {
+    clear: both;
+    float: none;
+    margin-left: -15px;
+}

@@ -76,8 +76,17 @@ export class IssueComponent implements OnInit {
     );
   }
 
-  edit() {
-
+  edit(idComment) {
+    let i = 0;
+    for (let comment of this.comments) {
+      if (comment.id == idComment) {
+        this.comments[i].edit = true;
+        console.log(1);
+        console.log(this.comments);
+      } 
+      ++i;
+    }
+    console.log(2);
   }
 
   delete(idComment) {

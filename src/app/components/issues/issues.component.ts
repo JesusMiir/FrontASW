@@ -25,7 +25,7 @@ export class IssuesComponent implements OnInit {
     private _issueService: IssueService,
     private _userService: UserService
   ) { 
-    this.getIssues();
+    this.getIssues(null, null, null, null);
     this.issues = [];
     this.pagina = 0;
   }
@@ -33,8 +33,8 @@ export class IssuesComponent implements OnInit {
   ngOnInit() {
   }
 
-  getIssues() {
-    this._issueService.getIssues().subscribe(
+  getIssues(filter,order, sort, value) {
+    this._issueService.getIssues(filter,order, sort, value).subscribe(
       response => {
         this.issues = (response);
         console.log(this.issues);
@@ -44,75 +44,75 @@ export class IssuesComponent implements OnInit {
   }
 
   onClickAll() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickOpen() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickMyIssues() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickWatching(){
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
   
   /////////////////////////////////////////////
 
   onClickTitle() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickType() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickPriority() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickStatus() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickVotes() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickAssignee() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickCreated() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickUpdated() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickWatch() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   /////////////////////////////////////////////
 
   onClickFilterByType() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickFilterByPriority() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickFilterByStatus() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
   onClickFilterByAssignee() {
-    this.getIssues();
+    this.getIssues(null, null, null, null);
   }
 
 }

@@ -63,7 +63,16 @@
             <i>{{comment.userComment.personalName}}</i><br>
             <h6>{{comment.text}}</h6>
             <div id="data"><small><a type="button" (click)="edit(comment.id)">Edit</a> · <a type="button" (click)="delete(comment.id)">Delete</a> · {{comment.creationDate | generateDate}}</small></div>
-            <br><br>
+            <br>
+            <div *ngIf="comment.edit" class="col-4 clearfix">
+                <br>
+                <h6>Edit your missage</h6>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="What wold you like to say?"
+                name="text" #text="ngModel" [(ngModel)]="comment.text"><br>
+                <button type="button" class="btn btn-primary">Save</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-light">Cancel</button>
+                <br><br><br>
+            </div>
         </div>
     </div>
     <div class="row">

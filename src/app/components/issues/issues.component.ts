@@ -19,6 +19,10 @@ export class IssuesComponent implements OnInit {
   public issues;
   public pagina;
 
+  public order;
+  public orderby;
+  public filter;
+
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
@@ -28,6 +32,10 @@ export class IssuesComponent implements OnInit {
     this.getIssues(null, null, null, null);
     this.issues = [];
     this.pagina = 0;
+
+    this.order = "desc";
+    this.orderby = "id";
+    this.filter = null;
   }
 
   ngOnInit() {
@@ -43,76 +51,96 @@ export class IssuesComponent implements OnInit {
     );
   }
 
+  swap_order(column){
+    if (this.orderby == column){
+      if (this.order == "asc") {
+        this.order = "desc";
+      } else {
+        this.order = "asc";
+      }
+    }
+
+    this.orderby = column;
+  }
+
   onClickAll() {
-    this.getIssues(null, null, null, null);
+    this.getIssues("all", this.order, null, null);
   }
 
   onClickOpen() {
-    this.getIssues(null, null, null, null);
+    this.getIssues("open", this.order, null, null);
   }
 
   onClickMyIssues() {
-    this.getIssues(null, null, null, null);
+    this.getIssues("mine", this.order, null, null);
   }
 
   onClickWatching(){
-    this.getIssues(null, null, null, null);
+    this.getIssues("watching", this.order, null, null);
   }
   
   /////////////////////////////////////////////
 
   onClickTitle() {
-    this.getIssues(null, null, null, null);
+    this.swap_order("title");
+    this.getIssues(null, this.order, "title", null);
   }
 
   onClickType() {
-    this.getIssues(null, null, null, null);
+    this.swap_order("type");
+    this.getIssues(null, this.order, "type", null);
   }
 
   onClickPriority() {
-    this.getIssues(null, null, null, null);
+    this.swap_order("priority");
+    this.getIssues(null, this.order, "prior", null);
   }
 
   onClickStatus() {
-    this.getIssues(null, null, null, null);
+    this.swap_order("status");
+    this.getIssues(null, this.order, "status", null);
   }
 
   onClickVotes() {
-    this.getIssues(null, null, null, null);
+    this.swap_order("votes");
+    this.getIssues(null, this.order, "votes", null);
   }
 
   onClickAssignee() {
-    this.getIssues(null, null, null, null);
+    this.swap_order("assignee");
+    this.getIssues(null, this.order, "assign", null);
   }
 
   onClickCreated() {
-    this.getIssues(null, null, null, null);
+    this.swap_order("create");
+    this.getIssues(null, this.order, "create", null);
   }
 
   onClickUpdated() {
-    this.getIssues(null, null, null, null);
+    this.swap_order("update");
+    this.getIssues(null, this.order, "update", null);
   }
 
   onClickWatch() {
-    this.getIssues(null, null, null, null);
+    this.swap_order("watch");
+    this.getIssues(null, this.order, "watch", null);
   }
 
   /////////////////////////////////////////////
 
-  onClickFilterByType() {
-    this.getIssues(null, null, null, null);
+  onClickFilterByType(value) {
+    this.getIssues("type", this.order, null, value);
   }
 
-  onClickFilterByPriority() {
-    this.getIssues(null, null, null, null);
+  onClickFilterByPriority(value) {
+    this.getIssues("priority", this.order, null, value);
   }
 
-  onClickFilterByStatus() {
-    this.getIssues(null, null, null, null);
+  onClickFilterByStatus(value) {
+    this.getIssues("status", this.order, null, value);
   }
 
-  onClickFilterByAssignee() {
-    this.getIssues(null, null, null, null);
+  onClickFilterByAssignee(value) {
+    this.getIssues("assign", this.order, null, value);
   }
-
 }

@@ -4,6 +4,11 @@
     margin: 0px auto;
 }
 
+tbody tr td button {
+    font-size: 13px;
+    margin: 0px auto;
+}
+
 #filter ul {
     line-height: 0px;
     float: left;
@@ -59,7 +64,7 @@
 
 .btn-light:hover, .btn-light.selected {
     color: #fff;
-    background-color:#333;
+    background-color:#445566;
     border-color:#dae0e5;
 }
 
@@ -79,6 +84,10 @@ table button.btn-secondary:hover {
 table button.btn-light:hover {
     background-color: #fff;
     color: #777;
+}
+
+table thead th {
+    border-bottom: 2px solid lightgrey;
 }
 
 div h6{

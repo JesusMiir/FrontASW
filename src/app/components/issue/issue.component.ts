@@ -17,6 +17,7 @@ import { UserService } from 'src/app/services/user.services';
 export class IssueComponent implements OnInit {
 
   public id;
+  public identity;
   public token;
   public issue: Issue;
   public user: User;
@@ -31,7 +32,8 @@ export class IssueComponent implements OnInit {
     private _commentService: CommentService,
     private _userService: UserService
   ) {
-    this.id = this._route.snapshot.paramMap.get('id'); 
+    this.id = this._route.snapshot.paramMap.get('id');
+    this.identity = this._userService.getIdentity();
     this.getIssue();
     this.getComments();
     this.token = this._userService.getToken();
@@ -76,18 +78,26 @@ export class IssueComponent implements OnInit {
     );
   }
 
-  edit(idComment) {
+  edit(idComment, change) {
     let i = 0;
     for (let comment of this.comments) {
       if (comment.id == idComment) {
-        this.comments[i].edit = true;
-        console.log(1);
+        this.comments[i].edit = change;
         console.log(this.comments);
       } 
       ++i;
     }
-    console.log(2);
   }
+
+  editSubmit(comment) {
+    this._commentService.edit(this.id, comment, this.token).subscribe(
+      response => {
+        console.log(response);
+        this.getComments();
+      }
+    );
+  }
+
 
   delete(idComment) {
     this._commentService.delete(this.id, idComment, this.token).subscribe(

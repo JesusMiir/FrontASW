@@ -4,10 +4,10 @@
             <h1>Issues</h1>
         </div>
         <div class="col-6">
-            <button type="button" class="btn btn-light left"><a class="button_new_issue" [routerLink]="['/issues/new']">Create Issue</a></button>
+            <button type="button" class="btn btn-light left new_issue"><a class="button_new_issue" [routerLink]="['/issues/new']">Create Issue</a></button>
         </div>
     </div>
-    <br>
+    <br><br>
     <div class="row">
         <div class="col-7" id="filter">
             <p id="filter">Filter by:</p>
@@ -25,7 +25,6 @@
             <input type="text" class="form-control" aria-describedby="Find issues" placeholder="Find issues">
         </div>
     </div>
-    <br><br>
     <div class="row">
         <div class="col-12">
             <h6>Issues ({{pagina}}-{{issues.length}} of {{issues.length}})</h6>
@@ -66,4 +65,7 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="separator"></div>
+    
 </div>

@@ -45,3 +45,52 @@
     text-decoration: none;
     color: #444;
 }
+
+.button_new_issue:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-light {
+    color: #212529;
+    background-color: white;
+    border: none;
+}
+
+.btn-light:hover, .btn-light.selected {
+    color: #fff;
+    background-color:#333;
+    border-color:#dae0e5;
+}
+
+table button.btn-secondary {
+    background-color: transparent;
+    color: #333;
+    border: none;
+}
+
+table button.btn-secondary:hover {
+    background-color: #eee;
+    color: #333;
+    border: none;
+    justify-content: left;
+}
+
+table button.btn-light:hover {
+    background-color: #fff;
+    color: #777;
+}
+
+div h6{
+    font-weight: 700;
+}
+
+.separator {
+    height: 2px;
+    background-color: lightgrey;
+}
+
+thead:after {
+    height: 2px;
+    background-color: lightgrey;
+}

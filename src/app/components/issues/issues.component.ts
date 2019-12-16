@@ -19,6 +19,7 @@ export class IssuesComponent implements OnInit {
   public issues;
   public pagina;
 
+
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
@@ -99,19 +100,23 @@ export class IssuesComponent implements OnInit {
 
   /////////////////////////////////////////////
 
-  onClickFilterByType() {
+  onClickFilterByType(type) {
+    console.log(type);
     this.getIssues(null, null, null, null);
   }
 
-  onClickFilterByPriority() {
+  onClickFilterByPriority(priority) {
+    console.log(priority);
     this.getIssues(null, null, null, null);
   }
 
-  onClickFilterByStatus() {
+  onClickFilterByStatus(status) {
+    console.log(status);
     this.getIssues(null, null, null, null);
   }
 
-  onClickFilterByAssignee() {
+  onClickFilterByAssignee(assignee) {
+    console.log(assignee);
     this.getIssues(null, null, null, null);
   }
 

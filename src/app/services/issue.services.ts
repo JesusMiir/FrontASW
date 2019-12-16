@@ -31,6 +31,6 @@ export class IssueService {
         let headers = new HttpHeaders({'Content-Type':'application/json', "api_key": null});
         let params = new HttpParams().set("filter", filter).set("order", order).set("sort", sort).set("value", value); 
 
-        return this._http.get(this.url);
+        return this._http.get(this.url, {headers:headers, params:params});
     }
 }

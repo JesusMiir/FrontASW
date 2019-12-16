@@ -53,12 +53,12 @@
                         #{{issue.id}}: {{issue.title}}
                     </a>
                 </td>
-                <td><button type="button" class="btn btn-light" (click)="onClickFilterByType()">{{issue.type}}</button></td>
-                <td><button type="button" class="btn btn-light" (click)="onClickFilterByPriority()">{{issue.priority}}</button></td>
-                <td><button type="button" class="btn btn-light" (click)="onClickFilterByStatus()">{{issue.status}}</button></td>
+                <td><button type="button" class="btn btn-light" (click)="onClickFilterByType(issue.type)">{{issue.type}}</button></td>
+                <td><button type="button" class="btn btn-light" (click)="onClickFilterByPriority(issue.priority)">{{issue.priority}}</button></td>
+                <td><button type="button" class="btn btn-light" (click)="onClickFilterByStatus(issue.status)">{{issue.status}}</button></td>
                 <td>{{issue.votes}}</td>
                 <td>
-                    <button *ngIf="issue.assigne != null" type="button" class="btn btn-light" (click)="onClickFilterByAssignee()">{{issue.assignee}}</button>
+                    <button *ngIf="issue.assigne != null" type="button" class="btn btn-light" (click)="onClickFilterByAssignee(issue.assignee.id)">{{issue.assignee}}</button>
                 </td>
                 <td>{{issue.creationDate | generateDate}}</td>
                 <td>{{issue.updateDate | generateDate}}</td>

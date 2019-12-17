@@ -18,6 +18,7 @@ export class IssuesComponent implements OnInit {
   public user: User;
   public issues;
   public pagina;
+  public identity;
 
   public order;
   public orderby;
@@ -30,6 +31,7 @@ export class IssuesComponent implements OnInit {
     private _issueService: IssueService,
     private _userService: UserService
   ) { 
+    this.identity = this._userService.getIdentity();
     this.getIssues(null, null, null, null);
     this.issues = [];
     this.pagina = 0;

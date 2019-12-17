@@ -70,3 +70,27 @@
     float: none;
     margin-left: -15px;
 }
+
+#backgroundBlue {
+    color: white;
+    background-color: #07F;
+    border-radius: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#backgroundGrey {
+    color: white;
+    background-color: grey;
+    border-radius: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#text-info {
+    margin-left: 10px;
+    color: #03A;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
+}

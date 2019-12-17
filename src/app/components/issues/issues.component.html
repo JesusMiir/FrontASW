@@ -27,7 +27,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h6>Issues ({{pagina}}-{{issues.length}} of {{issues.length}})</h6>
+            <h6>Issues ({{pagina}}-{{issues.length}} of {{issues.length}}) </h6>
         </div>
     </div>
     <br>
@@ -61,7 +61,9 @@
                 </td>
                 <td>{{issue.creationDate | generateDate}}</td>
                 <td>{{issue.updateDate | generateDate}}</td>
-                <td>{{issue.watched}}</td>
+                <td *ngFor="let watcher of issue.watchers">
+                    <span *ngIf="watcher.username == identity">*_*</span>
+                </td>
             </tr>
         </tbody>
     </table>

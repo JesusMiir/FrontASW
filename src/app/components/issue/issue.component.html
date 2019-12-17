@@ -37,14 +37,30 @@
             Watchers <br>
             <br>
         </div>
-        <div class="col-3 border2">
+        <div class="col-3 border2" *ngIf="cargado">
             <br>
             {{user.username}}<br>
             {{issue.type}} <br>
             {{issue.priority}} <br>
             {{issue.status}} <br>
-            {{issue.votes}} <br>
-            {{issue.watchers}}<br>
+            <span *ngIf="!vote">
+                <span id="backgroundGrey">{{issue.votes}}</span> 
+                <a type="button" id="text-info" (click)="changeVote()">Vote for this issue</a>
+            </span>
+            <span *ngIf="vote">
+                <span id="backgroundBlue">{{issue.votes}}</span> 
+                <a type="button" id="text-info" (click)="changeVote()">Remove vote</a>
+            </span>
+            <br>
+            <span *ngIf="!watcher">
+                <span id="backgroundGrey">{{issue.watchers.length}}</span> 
+                <a type="button" id="text-info" (click)="changeWatch()">Watch this issue</a>
+            </span>
+            <span *ngIf="watcher">
+                <span id="backgroundBlue">{{issue.watchers.length}}</span> 
+                <a type="button" id="text-info" (click)="changeWatch()">Stop watching</a>
+            </span>
+            <br>
             <br>
         </div>
     </div>

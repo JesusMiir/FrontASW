@@ -33,4 +33,24 @@ export class IssueService {
 
         return this._http.get(this.url);
     }
+
+    createVote(id, token):Observable<any> {
+        let headers = new HttpHeaders({'Content-Type':'application/json', "api_key": token});
+        return this._http.post(this.url + '/' + id + '/vote', null, {headers: headers});
+    }
+
+    deleteVote(id, token):Observable<any> {
+        let headers = new HttpHeaders({'Content-Type':'application/json', "api_key": token});
+        return this._http.delete(this.url + '/' + id + '/vote', {headers: headers});
+    }
+
+    createWatch(id, token):Observable<any> {
+        let headers = new HttpHeaders({'Content-Type':'application/json', "api_key": token});
+        return this._http.post(this.url + '/' + id + '/watch', null, {headers: headers});
+    }
+
+    deleteWatch(id, token):Observable<any> {
+        let headers = new HttpHeaders({'Content-Type':'application/json', "api_key": token});
+        return this._http.delete(this.url + '/' + id + '/watch' , {headers: headers});
+    }
 }

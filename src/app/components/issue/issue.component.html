@@ -13,7 +13,8 @@
             <h6>Issue #{{issue.id}} <button type="button" class="btn btn-dark status"> {{issue.status}} </button></h6>
         </div>
         <div class="col-6">
-            <button type="button" class="btn btn-light left" *ngIf="user.username == identity">Edit</button>
+            <button type="button" class="btn btn-light left" *ngIf="user.username == identity" 
+                [routerLink]="['/issue/edit/', id]">Edit</button>
             <button type="button" class="btn btn-light left"> Attach </button>
             <select class="col-4 form-control left" *ngIf="user.username == identity" 
                 name="status" [(ngModel)]="status" (change)="changeValueStatus()">

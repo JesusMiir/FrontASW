@@ -66,7 +66,7 @@ export class IssueComponent implements OnInit {
         this.votes = response.votesUsers;
         this.watchers = response.watchers;
         this.user = response.userCreator;
-        this.issue.userAssigneeId = response.userAssignee.id;
+        this.issue.userAssigneeId = response.userAssigneeId;
         console.log(this.issue);
         this.cargado = true;
         this.inVote();
@@ -223,7 +223,8 @@ export class IssueComponent implements OnInit {
     }
     console.log(text);
     if(text != null) {
-      text = 'changed status [' + this.status + '] "Comment autor: ' + text + '"';
+      if (text != '') text = 'changed status [' + this.status + '] "Comment autor: ' + text + '"';
+      else text = 'changed status [' + this.status + ']';
       this.comment = new Comment(null, null, null, text);
       this.issue.status = this.status;
       this.editIssue();

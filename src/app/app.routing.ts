@@ -9,6 +9,7 @@ import { IssueComponent } from './components/issue/issue.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { EditIssueComponent } from './components/edit-issue/edit-issue.component';
 
 
 
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
     {path: '', component: IssuesComponent},
     {path: 'issues', component: IssuesComponent},
     {path: 'issues/new', component: NewIssueComponent},
+    {path: 'issue/edit/:id', component: EditIssueComponent},
     {path: 'issue/:id', component: IssueComponent},
     {path: 'issue/:id/:title', component: IssueComponent},
     {path: 'login', component: LoginComponent},

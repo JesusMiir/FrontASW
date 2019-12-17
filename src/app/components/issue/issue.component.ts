@@ -29,6 +29,7 @@ export class IssueComponent implements OnInit {
   public watcher;
   public votes;
   public watchers;
+  public status;
 
   constructor(
     private _route: ActivatedRoute,
@@ -61,9 +62,11 @@ export class IssueComponent implements OnInit {
     this._issueService.getIssue(this.id).subscribe(
       response => {
         this.issue = (response);
+        this.status = this.issue.status;
         this.votes = response.votesUsers;
         this.watchers = response.watchers;
         this.user = response.userCreator;
+        this.issue.userAssigneeId = response.userAssignee.id;
         console.log(this.issue);
         this.cargado = true;
         this.inVote();
@@ -88,6 +91,7 @@ export class IssueComponent implements OnInit {
     this._commentService.create(this.id, this.comment, this.token).subscribe(
       response => {
         console.log(response);
+        this.comment = new Comment(null, null, null, '');
         this.getComments();
       }
     );
@@ -108,6 +112,23 @@ export class IssueComponent implements OnInit {
     this._commentService.edit(this.id, comment, this.token).subscribe(
       response => {
         console.log(response);
+        this.getComments();
+      }
+    );
+  }
+
+  editIssue() {
+    var issueNew = new Issue(null, null, null, '', '', '', '', '', null, null, null, null);
+    issueNew.title = this.issue.title;
+    issueNew.description = this.issue.description;
+    issueNew.type = this.issue.type;
+    issueNew.priority = this.issue.priority;
+    issueNew.userAssigneeId = this.issue.userAssigneeId;
+    this._issueService.edit(this.id, issueNew, this.token).subscribe(
+      response => {
+        console.log(response);
+        console.log('Holaa');
+        this.getIssue();
         this.getComments();
       }
     );
@@ -187,6 +208,40 @@ export class IssueComponent implements OnInit {
     for(let watcher of this.watchers){
       if(watcher.username == this.identity)
         this.watcher = true;
+    }
+  }
+
+  changeValueOpen() {
+    var text
+    if (this.status == 'RESOLVED') {
+      text = prompt("Open issue \n\nComment:\n", "");
+      if (text != null) this.status = 'OPEN';
+    }
+    else {
+      text = prompt("Resolve issue \n\nComment:\n", "");
+      if(text != null) this.status = 'RESOLVED';
+    }
+    console.log(text);
+    if(text != null) {
+      text = 'changed status [' + this.status + '] "Comment autor: ' + text + '"';
+      this.comment = new Comment(null, null, null, text);
+      this.issue.status = this.status;
+      this.editIssue();
+      this.submitComment();
+      this.getComments();
+    }
+  }
+
+  changeValueStatus() {
+    var text = prompt(this.status, "");
+    if(text != null) {
+      if (text != '') text = 'changed status [' + this.status + '] "Comment autor: ' + text + '"';
+      else text = 'changed status [' + this.status + ']';
+      this.comment = new Comment(null, null, null, text);
+      this.issue.status = this.status;
+      this.editIssue();
+      this.submitComment();
+      this.getComments();
     }
   }
 

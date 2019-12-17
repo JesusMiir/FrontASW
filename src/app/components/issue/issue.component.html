@@ -13,7 +13,22 @@
             <h6>Issue #{{issue.id}} <button type="button" class="btn btn-dark status"> {{issue.status}} </button></h6>
         </div>
         <div class="col-6">
+            <button type="button" class="btn btn-light left" *ngIf="user.username == identity">Edit</button>
             <button type="button" class="btn btn-light left"> Attach </button>
+            <select class="col-4 form-control left" *ngIf="user.username == identity" 
+                name="status" [(ngModel)]="status" (change)="changeValueStatus()">
+                <option>NEW</option>
+                <option>OPEN</option>
+                <option>ON HOLD</option>
+                <option>RESOLVED</option>
+                <option>DUPLICATE</option>
+                <option>INVALID</option>
+                <option>CLOSED</option>
+            </select>
+            <button type="button" class="btn btn-primary left" data-toggle="modal" data-target="#exampleModal"
+            *ngIf="user.username == identity && issue.status != 'RESOLVED'" (click)="changeValueOpen()">Resolve</button>
+            <button type="button" class="btn btn-primary left" data-toggle="modal" data-target="#exampleModal"
+            *ngIf="user.username == identity && issue.status == 'RESOLVED'" (click)="changeValueOpen()">Open</button>
         </div>
     </div>
     <br><br>

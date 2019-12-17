@@ -23,6 +23,13 @@ export class IssueService {
         return this._http.post(this.url, params, {headers: headers});
     }
 
+    edit(id, issue, token) {
+        let params = JSON.stringify(issue);
+        let headers = new HttpHeaders({'Content-Type':'application/json', 'api_key':token});
+        console.log(id);
+        return this._http.put(this.url + '/' + id, params, {headers: headers});
+    }
+
     getIssue(id):Observable<any> {
         return this._http.get(this.url + '/' + id);
     }

@@ -61,13 +61,16 @@
                 </td>
                 <td>{{issue.creationDate | generateDate}}</td>
                 <td>{{issue.updateDate | generateDate}}</td>
-                <td *ngFor="let watcher of issue.watchers">
-                    <span *ngIf="watcher.username == identity">*_*</span>
-                </td>
+                <div *ngFor="let watcher of issue.watchers">
+                    <td *ngIf="watcher.username == identity">
+                        *_*
+                    </td>
+                </div>
+                
             </tr>
         </tbody>
     </table>
 
-    <div class="separator"></div>
+    <div *ngIf="issues.length > 0" class="separator"></div>
     
 </div>

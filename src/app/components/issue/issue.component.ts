@@ -118,18 +118,13 @@ export class IssueComponent implements OnInit {
   }
 
   editIssue() {
-    var issueNew = new Issue(null, null, null, '', '', '', '', '', null, null, null, null);
-    issueNew.title = this.issue.title;
-    issueNew.description = this.issue.description;
-    issueNew.type = this.issue.type;
-    issueNew.priority = this.issue.priority;
-    issueNew.userAssigneeId = this.issue.userAssigneeId;
-    this._issueService.edit(this.id, issueNew, this.token).subscribe(
+    this._issueService.editStatus(this.id, this.issue.status, this.token).subscribe(
       response => {
         console.log(response);
-        console.log('Holaa');
         this.getIssue();
-        this.getComments();
+      },
+      error => {
+        console.log(error);
       }
     );
   }
@@ -140,6 +135,9 @@ export class IssueComponent implements OnInit {
       response => {
         console.log(response);
         this.getComments();
+      },
+      error => {
+        console.log(error);
       }
     );
   }
@@ -225,11 +223,9 @@ export class IssueComponent implements OnInit {
     if(text != null) {
       if (text != '') text = 'changed status [' + this.status + '] "Comment autor: ' + text + '"';
       else text = 'changed status [' + this.status + ']';
-      this.comment = new Comment(null, null, null, text);
       this.issue.status = this.status;
       this.editIssue();
       this.submitComment();
-      this.getComments();
     }
   }
 
@@ -242,7 +238,6 @@ export class IssueComponent implements OnInit {
       this.issue.status = this.status;
       this.editIssue();
       this.submitComment();
-      this.getComments();
     }
   }
 

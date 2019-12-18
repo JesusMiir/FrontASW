@@ -29,6 +29,11 @@ export class UserService {
       return this._http.post(this.url, params, {headers: headers}); 
     }
 
+    getUsers(token):Observable<any> {
+      let headers = new HttpHeaders({'Content-Type':'application/json', 'api_key':token});
+      return this._http.get(this.url, {headers: headers});
+    }
+
     getIdentity() {
         let identity = JSON.parse(localStorage.getItem('identity'));
         if(identity != 'undefined') {

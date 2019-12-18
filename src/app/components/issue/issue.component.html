@@ -56,9 +56,9 @@
         <div class="col-3 border2" *ngIf="cargado">
             <br>
             {{user.userAssignee}}<br>
-            {{issue.type}} <br>
-            {{issue.priority}} <br>
-            {{issue.status}} <br>
+            <img id="icon" src='assets/img/{{issue.type | lowercase}}.svg'> <br>
+            <img id="icon" src='assets/img/{{issue.priority | lowercase}}.svg'> <br>
+            <label id="status">{{issue.status}}</label> <br>
             <span *ngIf="!vote">
                 <span id="backgroundGrey">{{issue.votes}}</span> 
                 <a type="button" id="text-info" (click)="changeVote()">Vote for this issue</a>

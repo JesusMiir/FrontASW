@@ -95,3 +95,21 @@
     padding-right: 5px;
     background-color: white;
 }
+
+#icon {
+    height: 16px;
+    width: 16px;
+}
+
+#status {
+    font-size: 11px;
+    color: solid gray;
+
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border: 1px solid gray;
+
+    border-radius: 4px;
+}

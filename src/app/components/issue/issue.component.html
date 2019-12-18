@@ -10,7 +10,7 @@
     <br>
     <div class="row">
         <div class="col-6">
-            <h6>Issue #{{issue.id}} <button type="button" class="btn btn-dark status"> {{issue.status}} </button></h6>
+            <h6>Issue #{{issue.id}} <label id="status-dark"> {{issue.status}} </label></h6>
         </div>
         <div class="col-6">
             <button type="button" class="btn btn-light left" *ngIf="user.username == identity" 

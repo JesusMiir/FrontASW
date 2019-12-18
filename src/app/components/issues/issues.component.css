@@ -76,7 +76,6 @@ table button.btn-secondary {
 
 table button.btn-secondary:hover {
     background-color: #eee;
-    color: #333;
     border: none;
     justify-content: left;
 }
@@ -103,3 +102,36 @@ thead:after {
     height: 2px;
     background-color: lightgrey;
 }
+
+td a img {
+    height: 16px;
+    width: 16px;
+}
+
+tbody tr td button {
+    font-size: 11px !important;
+    margin: 0px auto;
+
+    padding: 0px;
+
+    height: 20px !important;
+    width: 50px !important;
+}
+
+thead tr th button {
+    margin: 0px auto;
+    padding: 0px;
+
+    height: 100%px !important;
+    width: 100% !important;
+}
+
+thead tr th {
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.text-left {
+    text-align: left !important;
+    padding-left: 10px !important;
+  }

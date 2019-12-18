@@ -25,6 +25,9 @@ export class IssuesComponent implements OnInit {
   public filter;
   public filterby;
 
+  public type_icon_src;
+  public priority_icon_src;
+
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
